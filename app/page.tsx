@@ -75,7 +75,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Layer 1: Dallas skyline backdrop, heavily darkened */}
+      {/* Layer 1: Dallas skyline backdrop */}
       <div className="absolute inset-0">
         <Image
           src={heroBackdrop}
@@ -83,11 +83,22 @@ function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-[0.22]"
+          className="object-cover opacity-[0.55]"
         />
+        {/* Light wash so the city stays readable but doesn't blow out the type */}
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-b from-[#06070C]/70 via-[#06070C]/85 to-[#06070C]"
+          className="absolute inset-0 bg-[#06070C]/35"
+        />
+        {/* Bottom fade so the section blends into the credentials marquee */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent via-[#06070C]/60 to-[#06070C]"
+        />
+        {/* Soft left-side fade so headline gets a tad more contrast */}
+        <div
+          aria-hidden
+          className="absolute inset-y-0 left-0 w-3/5 bg-gradient-to-r from-[#06070C]/55 to-transparent"
         />
       </div>
       {/* Layer 2: drifting amber/blue aurora glows */}
