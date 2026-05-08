@@ -197,7 +197,10 @@ export const credentials = [
   "Texas Franchise Tax",
 ];
 
-export const heroPortrait = `${UNSPLASH}1573497019940-1c28c88b4f3e?w=1200&q=85&auto=format&fit=crop`;
+// Dallas skyline at dusk — Wikimedia Commons (CC-licensed; public-domain in
+// many jurisdictions). Used as a softly-faded backdrop behind the hero.
+export const heroBackdrop =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dallas_Skyline_at_Dusk.jpg/3840px-Dallas_Skyline_at_Dusk.jpg";
 
 export type LifestyleShot = { image: string; title: string; caption: string };
 

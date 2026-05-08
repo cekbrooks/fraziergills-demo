@@ -10,7 +10,7 @@ import {
   cityscapeImage,
   differentiators,
   firm,
-  heroPortrait,
+  heroBackdrop,
   industries,
   lifestyle,
   services,
@@ -75,9 +75,26 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
+      {/* Layer 1: Dallas skyline backdrop, heavily darkened */}
+      <div className="absolute inset-0">
+        <Image
+          src={heroBackdrop}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-[0.22]"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-[#06070C]/70 via-[#06070C]/85 to-[#06070C]"
+        />
+      </div>
+      {/* Layer 2: drifting amber/blue aurora glows */}
       <div className="absolute inset-0">
         <Aurora />
       </div>
+      {/* Layer 3: subtle grid pattern at top */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -89,74 +106,43 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 pt-28 pb-32 md:pt-36 md:pb-40 lg:grid-cols-[1.15fr_1fr] lg:items-center">
-        <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-[#9CA1B0] backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5A623] opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5A623]" />
-            </span>
-            {firm.region} · IRS resolution · fractional CFO
-          </div>
+      <Reveal as="div" className="relative mx-auto max-w-6xl px-6 pt-28 pb-32 md:pt-36 md:pb-40">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-[#9CA1B0] backdrop-blur-sm">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5A623] opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5A623]" />
+          </span>
+          {firm.region} · IRS resolution · fractional CFO
+        </div>
 
-          <h1 className="mt-7 text-5xl leading-[1.02] tracking-[-0.025em] text-[#F4F5FA] md:text-7xl lg:text-[5rem]">
-            Smart accounting.
-            <br />
-            <span className="font-display italic text-[#F5A623]">Real impact.</span>{" "}
-            Dallas roots.
-          </h1>
+        <h1 className="mt-7 max-w-5xl text-5xl leading-[1.02] tracking-[-0.025em] text-[#F4F5FA] md:text-7xl lg:text-[5.5rem]">
+          Smart accounting.
+          <br />
+          <span className="font-display italic text-[#F5A623]">Real impact.</span>{" "}
+          Dallas roots.
+        </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-[#9CA1B0] md:text-xl">
-            {firm.description} Independent since {firm.founded}. Backed by a{" "}
-            <span className="text-[#E7E9F0]">100% satisfaction-or-refund guarantee</span>.
-          </p>
+        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#9CA1B0] md:text-xl">
+          {firm.description} Independent since {firm.founded}. Backed by a{" "}
+          <span className="text-[#E7E9F0]">100% satisfaction-or-refund guarantee</span>.
+        </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-7 py-3.5 text-sm font-semibold text-[#06070C] transition hover:bg-[#F8C97A]"
-            >
-              Book a complimentary consult
-              <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-            </a>
-            <a
-              href="#services"
-              className="rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#E7E9F0] backdrop-blur-sm transition hover:border-white/30 hover:bg-white/[0.06]"
-            >
-              See what we do
-            </a>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12} className="relative hidden lg:block">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.08] bg-[#14161F]">
-            <Image
-              src={heroPortrait}
-              alt="A Frazier Gills advisor reviewing a client's books"
-              fill
-              priority
-              sizes="(min-width: 1024px) 40vw, 90vw"
-              className="object-cover"
-            />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-[#06070C]/70 via-transparent to-transparent"
-            />
-            {/* Floating quote card */}
-            <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/10 bg-[#0A0C14]/85 p-5 backdrop-blur-md">
-              <div className="flex items-baseline gap-3">
-                <span className="font-display text-3xl leading-none text-[#F5A623]/80">
-                  &ldquo;
-                </span>
-                <p className="text-sm leading-relaxed text-[#E7E9F0]">
-                  Yolanda gives it to you straight. She doesn&apos;t make you feel good — she gives you the real scoop.
-                </p>
-              </div>
-              <p className="mt-3 pl-7 text-xs text-[#9CA1B0]">— Mid-sized firm CFO, Texas</p>
-            </div>
-          </div>
-        </Reveal>
-      </div>
+        <div className="mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-7 py-3.5 text-sm font-semibold text-[#06070C] transition hover:bg-[#F8C97A]"
+          >
+            Book a complimentary consult
+            <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+          </a>
+          <a
+            href="#services"
+            className="rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#E7E9F0] backdrop-blur-sm transition hover:border-white/30 hover:bg-white/[0.06]"
+          >
+            See what we do
+          </a>
+        </div>
+      </Reveal>
     </section>
   );
 }
