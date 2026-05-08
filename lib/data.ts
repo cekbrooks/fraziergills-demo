@@ -197,4 +197,29 @@ export const credentials = [
   "Texas Franchise Tax",
 ];
 
-export const heroOrb = `${UNSPLASH}1486406146926-c627a92ad1ab?w=2400&q=85&auto=format&fit=crop`;
+export const heroPortrait = `${UNSPLASH}1573497019940-1c28c88b4f3e?w=1200&q=85&auto=format&fit=crop`;
+
+export type LifestyleShot = { image: string; title: string; caption: string };
+
+export const lifestyle: LifestyleShot[] = [
+  {
+    image: `${UNSPLASH}1556761175-5973dc0f32e7?w=1200&q=80&auto=format&fit=crop`,
+    title: "Real conversations",
+    caption:
+      "We sit at the table. Twenty-minute scoping calls turn into real partnerships.",
+  },
+  {
+    image: `${UNSPLASH}1454165804606-c3d57bc86b40?w=1200&q=80&auto=format&fit=crop`,
+    title: "Books that hold up",
+    caption:
+      "Monthly closes that survive lender, IRS, and grantor scrutiny — without surprises.",
+  },
+  {
+    image: `${UNSPLASH}1521737604893-d14cc237f11d?w=1200&q=80&auto=format&fit=crop`,
+    title: "On-site when it matters",
+    caption:
+      "We're not just a Zoom firm. When you need us in person, we'll be there.",
+  },
+];
+
+export const cityscapeImage = `${UNSPLASH}1496449903678-68ddcb189a24?w=2000&q=80&auto=format&fit=crop`;

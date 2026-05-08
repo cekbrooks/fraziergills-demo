@@ -7,9 +7,12 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 import {
   contact,
   credentials,
+  cityscapeImage,
   differentiators,
   firm,
+  heroPortrait,
   industries,
+  lifestyle,
   services,
   stats,
   testimonials,
@@ -22,6 +25,7 @@ export default function HomePage() {
       <Hero />
       <CredentialsBar />
       <Stats />
+      <BehindTheFirm />
       <Services />
       <Industries />
       <Differentiators />
@@ -85,43 +89,74 @@ function Hero() {
         }}
       />
 
-      <Reveal as="div" className="relative mx-auto max-w-6xl px-6 pt-28 pb-32 md:pt-36 md:pb-40">
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-[#9CA1B0] backdrop-blur-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5A623] opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5A623]" />
-          </span>
-          {firm.region} · IRS resolution · fractional CFO
-        </div>
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 pt-28 pb-32 md:pt-36 md:pb-40 lg:grid-cols-[1.15fr_1fr] lg:items-center">
+        <Reveal>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-[#9CA1B0] backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5A623] opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5A623]" />
+            </span>
+            {firm.region} · IRS resolution · fractional CFO
+          </div>
 
-        <h1 className="mt-7 max-w-5xl text-5xl leading-[1.02] tracking-[-0.025em] text-[#F4F5FA] md:text-7xl lg:text-[5.5rem]">
-          Smart accounting.
-          <br />
-          <span className="font-display italic text-[#F5A623]">Real impact.</span>{" "}
-          Dallas roots.
-        </h1>
+          <h1 className="mt-7 text-5xl leading-[1.02] tracking-[-0.025em] text-[#F4F5FA] md:text-7xl lg:text-[5rem]">
+            Smart accounting.
+            <br />
+            <span className="font-display italic text-[#F5A623]">Real impact.</span>{" "}
+            Dallas roots.
+          </h1>
 
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[#9CA1B0] md:text-xl">
-          {firm.description} Independent since {firm.founded}. Backed by a{" "}
-          <span className="text-[#E7E9F0]">100% satisfaction-or-refund guarantee</span>.
-        </p>
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-[#9CA1B0] md:text-xl">
+            {firm.description} Independent since {firm.founded}. Backed by a{" "}
+            <span className="text-[#E7E9F0]">100% satisfaction-or-refund guarantee</span>.
+          </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-3">
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-7 py-3.5 text-sm font-semibold text-[#06070C] transition hover:bg-[#F8C97A]"
-          >
-            Book a complimentary consult
-            <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-          </a>
-          <a
-            href="#services"
-            className="rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#E7E9F0] backdrop-blur-sm transition hover:border-white/30 hover:bg-white/[0.06]"
-          >
-            See what we do
-          </a>
-        </div>
-      </Reveal>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-7 py-3.5 text-sm font-semibold text-[#06070C] transition hover:bg-[#F8C97A]"
+            >
+              Book a complimentary consult
+              <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="#services"
+              className="rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-[#E7E9F0] backdrop-blur-sm transition hover:border-white/30 hover:bg-white/[0.06]"
+            >
+              See what we do
+            </a>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.12} className="relative hidden lg:block">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.08] bg-[#14161F]">
+            <Image
+              src={heroPortrait}
+              alt="A Frazier Gills advisor reviewing a client's books"
+              fill
+              priority
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              className="object-cover"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-[#06070C]/70 via-transparent to-transparent"
+            />
+            {/* Floating quote card */}
+            <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/10 bg-[#0A0C14]/85 p-5 backdrop-blur-md">
+              <div className="flex items-baseline gap-3">
+                <span className="font-display text-3xl leading-none text-[#F5A623]/80">
+                  &ldquo;
+                </span>
+                <p className="text-sm leading-relaxed text-[#E7E9F0]">
+                  Yolanda gives it to you straight. She doesn&apos;t make you feel good — she gives you the real scoop.
+                </p>
+              </div>
+              <p className="mt-3 pl-7 text-xs text-[#9CA1B0]">— Mid-sized firm CFO, Texas</p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }
@@ -182,6 +217,51 @@ function Stats() {
 }
 
 // ---------------------------------------------------------------------------
+
+function BehindTheFirm() {
+  return (
+    <section className="border-b border-white/[0.06] bg-[#0A0C14]">
+      <div className="mx-auto max-w-6xl px-6 py-24 md:py-28">
+        <Reveal className="max-w-2xl">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#F5A623]">
+            Behind the firm
+          </p>
+          <h2 className="font-display mt-5 text-3xl leading-[1.1] tracking-[-0.02em] text-[#F4F5FA] md:text-5xl">
+            Three habits that <em className="not-italic text-[#F5A623]">add up to thirty years</em> of repeat clients.
+          </h2>
+        </Reveal>
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {lifestyle.map((l, i) => (
+            <Reveal
+              key={l.title}
+              as="article"
+              delay={i * 0.08}
+              className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0E1019]"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={l.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 768px) 33vw, 90vw"
+                  className="object-cover opacity-90 transition duration-700 group-hover:scale-105"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-[#0E1019] via-transparent to-transparent"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl tracking-tight text-[#F4F5FA]">{l.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#9CA1B0]">{l.caption}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Services() {
   return (
@@ -361,9 +441,23 @@ function Testimonials() {
                   &ldquo;
                 </span>
                 <p className="-mt-2 leading-relaxed text-[#E7E9F0]">{t.quote}</p>
-                <div className="mt-7 border-t border-white/[0.08] pt-5 text-sm">
-                  <p className="font-medium text-[#F4F5FA]">{t.name}</p>
-                  <p className="mt-0.5 text-[#9CA1B0]">{t.role}</p>
+                <div className="mt-7 flex items-center gap-3 border-t border-white/[0.08] pt-5 text-sm">
+                  <span
+                    aria-hidden
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#F5A623]/30 to-[#F5A623]/10 font-display text-base text-[#F5A623] ring-1 ring-inset ring-[#F5A623]/20"
+                  >
+                    {t.name
+                      .split(/\s+/)
+                      .map((w) => w[0])
+                      .filter((c) => /[A-Za-z]/.test(c ?? ""))
+                      .slice(0, 2)
+                      .join("")
+                      .toUpperCase()}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="font-medium text-[#F4F5FA]">{t.name}</p>
+                    <p className="mt-0.5 text-[#9CA1B0]">{t.role}</p>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -380,6 +474,17 @@ function Cta() {
   return (
     <section id="contact" className="relative overflow-hidden border-b border-white/[0.06]">
       <div className="absolute inset-0">
+        <Image
+          src={cityscapeImage}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-25"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-[#06070C]/85 via-[#06070C]/95 to-[#06070C]"
+        />
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-br from-[#F5A623]/[0.07] via-transparent to-[#3B5BDB]/[0.05]"
